@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script src="/static/js/jquery.min.js"></script>
+	<script src="/static/js/mustache.js"></script>
+	<link rel="stylesheet" href="/static/css/font-awesome.min.css" />
+	<link rel="icon" type="image/png" href="{{ STATIC_URL}}images/favicon.png">
+	<link rel="stylesheet" href="/static/css/search.css">
+	{% if q %}
+	<title>{{ q }} | Cope | Library Search</title>
+	{% else %}
+	<title>Cope | Library Search</title>
+	{% endif %}
+
+</head>
+<body>
+	<div id="container">
+		<div id="logo">
+			<h1>LIBRARY</h1>
+			<h3>Management System</h3>
+		</div>
+		<header>
+			<div id="view-buttons">
+				<div data-sizeClass="tile-small" class="active"><i class="icon-th"></i></div>
+				<div data-sizeClass="tile-large"><i class="icon-th-large"></i></div>
+				<div data-sizeClass="list"><i class="icon-reorder"></i></div>
+			</div>
+			<div id="search-bar">
+				{% if q %}
+				<input type="input" name='q' id='q' placeholder="Search a book" autocomplete="off" value="{{ q }}">
+				{% else %}
+				<input type="input" name='q' id='q' placeholder="Search a book" autocomplete="off">
+				{% endif %}
+				<span class="icon-search"></span>
+			</div>
+			<button id="search-button">Search</button>
+		</header>
+
+		<div id="book-container" class="tile-small">
+			{% for book in books %}
+			<div class="book-frame" data-id="{{ book.id }}">
+				<div class="book-inner-frame">
+					<img src="/static/images/{{ book.imageurl }}" onError="this.onerror=null;this.src='/static/images/fallback_image.png'">
+					<div class="book-details">
+						<div><div><i class="icon-user"></i></div>{{ book.authors }}</div>
+						<div><div><i class="icon-file-text"></i></div>Edition: {{ book.edition }}</div>
+						<div><div><i class="icon-truck"></i></div>{{ book.publisher }}</div>
+						<div><div><i class="icon-book"></i></div>{{ book.isbn }}</div>
+						<div><div><i class="icon-copy"></i></div>Copies left: {{ book.copies_available }}</div>
+					</div>
+				</div>
+				<div class="book-name">{{ book.title }}</div>
+			</div>
+			{% endfor %}
+
+		</div>
+	</div> <!-- container end -->
+
+	<script src="/static/js/search.js"></script>
+</body>
+</html>
+
