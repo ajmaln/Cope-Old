@@ -14,7 +14,7 @@ class StudentAdmin(admin.ModelAdmin):
     fields = ('name', 'card_number', 'gender', 'phone_number', 'roll_number', 'branch', 'batch', 'semester',)
     list_display = ('name', 'roll_number', 'branch')
     list_filter = ('branch', 'batch', 'semester',)
-    search_fields = ('name', 'rollno', 'phone_number',)
+    search_fields = ('name', 'roll_number', 'phone_number',)
     ordering = ('name', 'roll_number')
 
 class EmployeeAdmin(admin.ModelAdmin):
