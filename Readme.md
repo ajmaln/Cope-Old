@@ -1,7 +1,8 @@
-Library Management System (Cope-Old)
-====================================
+Library Management System in Django (Cope-Old)
+==============================================
 
 <quote>Forked from <link>https://github.com/sourabhv/Cope-Old</link></quote>
+
 Upgraded for new Django 1.11
 
 A digital library tool comprising of a public access view and equipped with fully functioning administrative tasks such as cataloging and circulation of books.
