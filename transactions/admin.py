@@ -5,10 +5,11 @@ from transactions.models import *
 
 class EndUserAdmin(admin.ModelAdmin):
     def get_model_perms(self, request):
-        '''
+        """
         Return empty perms dict thus hiding the model from admin index.
-        '''
+        """
         return {}
+
 
 class StudentAdmin(admin.ModelAdmin):
     fields = ('name', 'card_number', 'gender', 'phone_number', 'roll_number', 'branch', 'batch', 'semester',)
@@ -16,6 +17,7 @@ class StudentAdmin(admin.ModelAdmin):
     list_filter = ('branch', 'batch', 'semester',)
     search_fields = ('name', 'roll_number', 'phone_number',)
     ordering = ('name', 'roll_number')
+
 
 class EmployeeAdmin(admin.ModelAdmin):
     fields = ('name', 'card_number', 'gender', 'phone_number', 'employee_id', 'joining_date', 'department', 'designation',)
